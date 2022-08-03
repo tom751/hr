@@ -1,6 +1,4 @@
-import SchemaBuilder from '@pothos/core'
-
-const builder = new SchemaBuilder({})
+import builder from '@/builder'
 
 builder.queryType({
   fields: (t) => ({
@@ -12,5 +10,3 @@ builder.queryType({
     }),
   }),
 })
-
-export default builder.toSchema({})
