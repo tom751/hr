@@ -1,16 +1,21 @@
+import db from '@/db'
 import SchemaBuilder from '@pothos/core'
-import { PrismaClient } from '@prisma/client'
+import ErrorsPlugin from '@pothos/plugin-errors'
 import PrismaPlugin from '@pothos/plugin-prisma'
 import type PrismaTypes from '@pothos/plugin-prisma/generated'
-
-const prisma = new PrismaClient()
+import ValidationPlugin from '@pothos/plugin-validation'
 
 const builder = new SchemaBuilder<{
   PrismaTypes: PrismaTypes
+  DefaultInputFieldRequiredness: true
 }>({
-  plugins: [PrismaPlugin],
+  plugins: [ErrorsPlugin, PrismaPlugin, ValidationPlugin],
   prisma: {
-    client: prisma,
+    client: db,
+  },
+  defaultInputFieldRequiredness: true,
+  errorOptions: {
+    defaultTypes: [Error],
   },
 })
 

@@ -1,5 +1,5 @@
 import crypto from 'crypto'
-import { bcrypt } from 'hash-wasm'
+import { bcrypt, bcryptVerify } from 'hash-wasm'
 
 export async function hashPassword(password: string) {
   const salt = crypto.randomBytes(16)
@@ -10,4 +10,8 @@ export async function hashPassword(password: string) {
     costFactor: 11,
     outputType: 'encoded',
   })
+}
+
+export async function comparePassword(hash: string, password: string) {
+  return bcryptVerify({ hash, password })
 }
