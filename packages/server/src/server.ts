@@ -1,10 +1,12 @@
+import { Context } from '@/builder'
 import schema from '@/schema'
 import { createServer } from '@graphql-yoga/node'
 import { initContextCache } from '@pothos/core'
+import connectRedis from 'connect-redis'
 import 'dotenv/config'
 import express from 'express'
 import session from 'express-session'
-import { Context } from './builder'
+import Redis from 'ioredis'
 
 const server = createServer<Context>({
   schema,
@@ -15,9 +17,14 @@ const server = createServer<Context>({
 })
 
 const app = express()
+const RedisStore = connectRedis(session)
+const redisClient = new Redis()
+export const sessionCookieName = 'sid'
+
 app.use(
   session({
-    name: 'sid',
+    store: new RedisStore({ client: redisClient as any }),
+    name: sessionCookieName,
     secret: process.env.SESSION_SECRET!,
     resave: false,
     saveUninitialized: false,

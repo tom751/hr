@@ -1,5 +1,6 @@
 import builder from '@/builder'
 import db from '@/db'
+import { sessionCookieName } from '@/server'
 import { comparePassword } from '@/utils/auth'
 
 const loginInput = builder.inputType('LoginInput', {
@@ -40,6 +41,16 @@ builder.mutationField('login', (t) => {
       session.userId = user.id
 
       return user
+    },
+  })
+})
+
+builder.mutationField('logout', (t) => {
+  return t.boolean({
+    resolve: (_, __, { session, res }) => {
+      session.destroy(() => {})
+      res.clearCookie(sessionCookieName)
+      return true
     },
   })
 })

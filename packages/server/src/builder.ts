@@ -4,7 +4,7 @@ import ErrorsPlugin from '@pothos/plugin-errors'
 import PrismaPlugin from '@pothos/plugin-prisma'
 import type PrismaTypes from '@pothos/plugin-prisma/generated'
 import ValidationPlugin from '@pothos/plugin-validation'
-import { Request } from 'express'
+import { Request, Response } from 'express'
 import { Session } from 'express-session'
 
 interface HrSession extends Session {
@@ -13,6 +13,7 @@ interface HrSession extends Session {
 
 export interface Context {
   req: Request
+  res: Response
   session: HrSession
 }
 
