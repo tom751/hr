@@ -23,7 +23,7 @@ builder.mutationField('login', (t) => {
     errors: {
       types: [Error],
     },
-    resolve: async (_, __, { input }) => {
+    resolve: async (_, __, { input }, { session }) => {
       const user = await db.user.findFirstOrThrow({
         where: {
           email: {
@@ -36,6 +36,8 @@ builder.mutationField('login', (t) => {
       if (!pwCheck) {
         throw new Error('Invalid email or password')
       }
+
+      session.userId = user.id
 
       return user
     },
