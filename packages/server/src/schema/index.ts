@@ -3,7 +3,15 @@ import '@/schema/auth'
 import '@/schema/user'
 import '@/schema/errors'
 
-builder.queryType({})
-builder.mutationType({})
+builder.queryType({
+  authScopes: {
+    authenticated: true,
+  },
+})
+builder.mutationType({
+  authScopes: {
+    authenticated: true,
+  },
+})
 
 export default builder.toSchema({})

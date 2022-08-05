@@ -3,6 +3,24 @@ import db from '@/db'
 import { sessionCookieName } from '@/server'
 import { comparePassword } from '@/utils/auth'
 
+builder.queryField('me', (t) =>
+  t.prismaField({
+    type: 'User',
+    nullable: true,
+    resolve(_, __, ___, { session }) {
+      if (!session.userId) {
+        return null
+      }
+
+      return db.user.findFirstOrThrow({
+        where: {
+          id: session.userId,
+        },
+      })
+    },
+  })
+)
+
 const loginInput = builder.inputType('LoginInput', {
   fields: (t) => ({
     email: t.string({
@@ -24,6 +42,7 @@ builder.mutationField('login', (t) => {
     errors: {
       types: [Error],
     },
+    skipTypeScopes: true,
     resolve: async (_, __, { input }, { session }) => {
       const user = await db.user.findFirstOrThrow({
         where: {
