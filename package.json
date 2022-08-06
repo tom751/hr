@@ -7,6 +7,9 @@
   ],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "dev": "pnpm -r --filter=./packages/* run dev"
+  },
   "devDependencies": {
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13"

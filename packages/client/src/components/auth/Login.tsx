@@ -1,8 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { object, string } from 'zod'
-import Button from '../shared/Button'
-import Input from '../shared/Input'
+import Button from '@/components/shared/Button'
+import Input from '@/components/shared/Input'
 
 const schema = object({
   email: string().email().min(1).trim(),
