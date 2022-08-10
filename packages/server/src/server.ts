@@ -1,11 +1,12 @@
 import { Context } from '@/builder'
-import schema from '@/schema'
+import schema, { schemaAsString } from '@/schema'
 import { createServer } from '@graphql-yoga/node'
 import { initContextCache } from '@pothos/core'
 import connectRedis from 'connect-redis'
 import 'dotenv/config'
 import express from 'express'
 import session from 'express-session'
+import { writeFileSync } from 'fs'
 import Redis from 'ioredis'
 
 const server = createServer<Context>({
@@ -40,3 +41,7 @@ app.use('/graphql', server)
 
 const port = 4000
 app.listen(port, () => console.log(`Running on port http://localhost:${port}/graphql`))
+
+if (process.env.NODE_ENV === 'development') {
+  writeFileSync('./schema.graphql', schemaAsString)
+}

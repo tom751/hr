@@ -1,0 +1,35 @@
+type BaseError implements Error {
+  message: String!
+}
+
+interface Error {
+  message: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  login(input: LoginInput!): MutationLoginResult!
+  logout: Boolean!
+}
+
+union MutationLoginResult = BaseError | MutationLoginSuccess
+
+type MutationLoginSuccess {
+  data: User!
+}
+
+type Query {
+  me: User
+  users: [User!]!
+}
+
+type User {
+  authenticatorEnabled: Boolean!
+  email: String!
+  fullName: String!
+  id: ID!
+}
