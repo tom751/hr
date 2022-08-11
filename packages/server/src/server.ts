@@ -15,6 +15,10 @@ const server = createServer<Context>({
     ...initContextCache(),
     session: req.session,
   }),
+  cors: {
+    credentials: true,
+    origin: 'http://localhost:5173',
+  },
 })
 
 const app = express()
