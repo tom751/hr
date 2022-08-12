@@ -1,8 +1,12 @@
+import Alert from '@/components/shared/Alert'
 import Button from '@/components/shared/Button'
 import Input from '@/components/shared/Input'
+import useUserStore from '@/stores/user'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { graphql, useMutation } from 'react-relay'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { object, string } from 'zod'
 import { LoginMutation } from './__generated__/LoginMutation.graphql'
 
@@ -37,12 +41,26 @@ export default function Login() {
     `
   )
   const { register, handleSubmit } = useForm<LoginForm>({ resolver: zodResolver(schema) })
+  const navigate = useNavigate()
+  const location = useLocation()
+  const setUser = useUserStore((state) => state.setUser)
+  const [error, setError] = useState('')
 
   function submit(params: LoginForm) {
     commit({
       variables: { input: params },
-      onCompleted(response, errors) {
-        console.log(response)
+      onCompleted({ login }) {
+        if (login.message) {
+          setError(login.message)
+          return
+        }
+
+        setUser(login.data!)
+        const navigateTo = (location.state as any).from?.pathname || '/'
+        navigate(navigateTo)
+      },
+      onError() {
+        setError('An error occurred, please try again later')
       },
     })
   }
@@ -55,6 +73,11 @@ export default function Login() {
         </h1>
       </div>
       <div className="m-auto max-w-lg rounded-lg bg-white p-12 shadow-lg">
+        {error && (
+          <Alert className="mb-2" variation="error">
+            {error}
+          </Alert>
+        )}
         <form onSubmit={handleSubmit(submit)}>
           <Input label="Email address" type="email" {...register('email')} />
           <Input label="Password" type="password" {...register('password')} />

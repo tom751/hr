@@ -12,7 +12,7 @@ pnpm dev
 # Connect to redis
 
 ```sh
-docker exec-it hr-redis sh
+docker exec -it hr-redis sh
 redis-cli
 ```
 

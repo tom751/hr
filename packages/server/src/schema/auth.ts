@@ -44,13 +44,17 @@ builder.mutationField('login', (t) => {
     },
     skipTypeScopes: true,
     resolve: async (_, __, { input }, { session }) => {
-      const user = await db.user.findFirstOrThrow({
+      const user = await db.user.findFirst({
         where: {
           email: {
             equals: input.email,
           },
         },
       })
+
+      if (!user) {
+        throw new Error('Invalid email or password')
+      }
 
       const pwCheck = await comparePassword(user.password, input.password)
       if (!pwCheck) {
