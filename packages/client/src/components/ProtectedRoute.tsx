@@ -1,6 +1,7 @@
 import useUserStore from '@/stores/user'
 import { graphql, PreloadedQuery, usePreloadedQuery } from 'react-relay'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
+import AppShell from './layout/AppShell'
 import { ProtectedRouteQuery } from './__generated__/ProtectedRouteQuery.graphql'
 
 interface Props {
@@ -32,5 +33,9 @@ export default function ProtectedRoute({ queryRef }: Props) {
     return <Navigate to="/login" state={{ from: location }} replace />
   }
 
-  return <Outlet />
+  return (
+    <AppShell>
+      <Outlet />
+    </AppShell>
+  )
 }
