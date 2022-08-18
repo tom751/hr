@@ -6,8 +6,8 @@ export default function NavLink(props: LinkProps) {
   const match = useMatch({ path: resolved.pathname, end: true })
   return (
     <li
-      className={clsx('rounded-md text-slate-300 transition hover:bg-slate-600', {
-        'bg-slate-600': match,
+      className={clsx('rounded-md text-slate-300 transition hover:bg-slate-600 dark:hover:bg-zinc-700', {
+        'bg-slate-600 dark:bg-zinc-700': match,
       })}
     >
       <Link
