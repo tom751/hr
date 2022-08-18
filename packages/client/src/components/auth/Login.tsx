@@ -66,13 +66,13 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 bg-cover bg-bottom bg-repeat-x pt-72">
+    <div className="min-h-screen bg-gray-100 bg-cover bg-bottom bg-repeat-x pt-72 dark:bg-zinc-900">
       <div className="m-auto mb-10 max-w-lg text-center">
-        <h1 className="text-4xl font-semibold text-gray-700">
-          <span className="text-indigo-600">Sign in</span> to your account
+        <h1 className="text-4xl font-semibold text-gray-700 dark:text-gray-100">
+          <span className="text-indigo-600 dark:text-indigo-400">Sign in</span> to your account
         </h1>
       </div>
-      <div className="m-auto max-w-lg rounded-lg bg-white p-12 shadow-lg">
+      <div className="m-auto max-w-lg rounded-lg bg-white p-12 shadow-lg dark:bg-zinc-800">
         {error && (
           <Alert className="mb-2" variation="error">
             {error}
