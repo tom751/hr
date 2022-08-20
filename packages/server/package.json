@@ -6,7 +6,8 @@
     "prisma:gen": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:reset": "prisma migrate reset",
-    "prisma:seed": "prisma db seed"
+    "prisma:seed": "prisma db seed",
+    "lint": "echo 'Nothing to do'"
   },
   "prisma": {
     "seed": "ts-node -r tsconfig-paths/register ./prisma/seed.ts"
