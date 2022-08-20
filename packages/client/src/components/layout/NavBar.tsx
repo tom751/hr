@@ -2,12 +2,12 @@ import NavLink from '@/components/layout/NavLink'
 import clsx from 'clsx'
 import { useState } from 'react'
 import {
-  HiOutlineHome,
   HiOutlineUserCircle,
   HiOutlineCalendar,
   HiOutlineEmojiSad,
   HiOutlineCash,
   HiMenu,
+  HiOutlineTemplate,
 } from 'react-icons/hi'
 
 export default function NavBar() {
@@ -35,7 +35,7 @@ export default function NavBar() {
         <p className="text-3xl font-semibold text-slate-300">👋 Hi</p>
         <ul className="mt-8 space-y-2">
           <NavLink to="/">
-            <HiOutlineHome className="mr-4 h-8 w-8" /> Dashboard
+            <HiOutlineTemplate className="mr-4 h-8 w-8" /> Dashboard
           </NavLink>
           <NavLink to="/details">
             <HiOutlineUserCircle className="mr-4 h-8 w-8" /> Your details
