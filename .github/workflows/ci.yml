@@ -1,0 +1,25 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: pnpm install
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.8.0
+          run_install: true
+      - name: Lint
+        run: pnpm lint
