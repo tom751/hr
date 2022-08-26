@@ -3,14 +3,19 @@ import { ComponentProps } from 'react'
 
 interface Props extends ComponentProps<'button'> {
   loading?: boolean
+  variant?: 'outline' | 'fill'
 }
 
-export default function Button({ children, className, loading = false, ...props }: Props) {
+export default function Button({ children, className, loading = false, variant = 'fill', ...props }: Props) {
   return (
     <button
       className={clsx(
-        className,
-        'relative rounded-md bg-indigo-600 py-2 px-4 text-white transition-colors hover:bg-indigo-500 disabled:cursor-not-allowed disabled:bg-indigo-400'
+        'relative rounded-md py-2 px-4 transition-colors focus:outline-none focus:ring focus:ring-offset-1 disabled:cursor-not-allowed',
+        variant === 'fill' &&
+          'bg-indigo-600 text-white hover:bg-indigo-500 focus:ring-indigo-400 disabled:bg-indigo-400',
+        variant === 'outline' &&
+          'border-2 border-gray-300 text-gray-800 hover:bg-gray-100 focus:ring-indigo-500 disabled:bg-transparent disabled:opacity-60',
+        className
       )}
       disabled={loading}
       {...props}

@@ -1,3 +1,9 @@
+import Summary from '@/components/dashboard/Summary'
+
 export default function Dashboard() {
-  return <div>Dashboard</div>
+  return (
+    <div>
+      <Summary />
+    </div>
+  )
 }

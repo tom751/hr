@@ -1,4 +1,4 @@
-import NavBar from '@/components/layout/NavBar'
+import Header from '@/components/layout/Header'
 
 interface Props {
   children: React.ReactNode
@@ -6,11 +6,9 @@ interface Props {
 
 export default function AppShell({ children }: Props) {
   return (
-    <main className="min-h-screen md:flex md:bg-slate-800 dark:md:bg-zinc-800">
-      <NavBar />
-      <section className="w-full bg-gray-50 dark:bg-zinc-900 dark:text-gray-50 md:rounded-tl-xl md:rounded-bl-xl">
-        {children}
-      </section>
+    <main className="min-h-screen bg-gray-100">
+      <Header />
+      <section className="mx-auto w-full max-w-6xl">{children}</section>
     </main>
   )
 }
