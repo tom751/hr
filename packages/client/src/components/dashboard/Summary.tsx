@@ -4,7 +4,7 @@ import Card from '@/components/shared/Card'
 
 export default function Summary() {
   return (
-    <Card className="-mt-20">
+    <Card className="col-span-2 ">
       <div className="flex items-center p-6">
         <div className="flex items-center justify-center overflow-hidden rounded-full bg-gray-200">
           <HiUser className="h-20 w-20 text-gray-500 opacity-80" />
@@ -18,7 +18,7 @@ export default function Summary() {
           View profile
         </Button>
       </div>
-      <div className="grid grid-cols-3 divide-x-2 border-t-2 bg-gray-100 text-center">
+      <div className="grid grid-cols-3 items-center divide-x-2 border-t-2 bg-gray-100 text-center">
         <p className="p-4">
           <span className="font-medium">12</span> holidays left
         </p>

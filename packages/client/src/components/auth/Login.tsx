@@ -81,7 +81,7 @@ export default function Login() {
         <form onSubmit={handleSubmit(submit)}>
           <Input label="Email address" type="email" {...register('email')} />
           <Input label="Password" type="password" {...register('password')} />
-          <Button className="mt-4 w-full" type="submit" loading={isInFlight}>
+          <Button className="mt-4" fullWidth type="submit" loading={isInFlight}>
             Sign in
           </Button>
         </form>
