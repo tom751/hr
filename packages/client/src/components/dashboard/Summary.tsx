@@ -4,7 +4,7 @@ import Card from '@/components/shared/Card'
 
 export default function Summary() {
   return (
-    <Card className="col-span-2 ">
+    <Card>
       <div className="flex items-center p-6">
         <div className="flex items-center justify-center overflow-hidden rounded-full bg-gray-200">
           <HiUser className="h-20 w-20 text-gray-500 opacity-80" />
