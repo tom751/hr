@@ -18,6 +18,7 @@ export default function QuickLinks() {
         routeTo="/holidays"
         icon={<HiOutlineClock className="text-2xl text-emerald-800" />}
         iconClassName="bg-emerald-50"
+        hoverClassName="after:bg-emerald-800"
       />
       <QuickLink
         title="Payslips"
@@ -25,6 +26,7 @@ export default function QuickLinks() {
         routeTo="/payslips"
         icon={<HiOutlineCurrencyPound className="text-2xl text-blue-800" />}
         iconClassName="bg-blue-50"
+        hoverClassName="after:bg-blue-800"
       />
       <QuickLink
         title="1 to 1s"
@@ -32,6 +34,7 @@ export default function QuickLinks() {
         routeTo="/one-to-one"
         icon={<HiOutlineUsers className="text-2xl text-yellow-800" />}
         iconClassName="bg-yellow-50"
+        hoverClassName="after:bg-yellow-800"
       />
       <QuickLink
         title="Log sick day"
@@ -39,6 +42,7 @@ export default function QuickLinks() {
         routeTo="/absences"
         icon={<HiOutlineEmojiSad className="text-2xl text-rose-800" />}
         iconClassName="bg-rose-50"
+        hoverClassName="after:bg-rose-800"
       />
       <QuickLink
         title="Claim expense"
@@ -46,6 +50,7 @@ export default function QuickLinks() {
         routeTo="/expenses"
         icon={<HiOutlineReceiptRefund className="text-2xl text-cyan-800" />}
         iconClassName="bg-cyan-50"
+        hoverClassName="after:bg-cyan-800"
         noBottomBorder
       />
       <QuickLink
@@ -54,6 +59,7 @@ export default function QuickLinks() {
         routeTo="/documents"
         icon={<HiOutlineDocumentText className="text-2xl text-violet-800" />}
         iconClassName="bg-violet-50"
+        hoverClassName="after:bg-violet-800"
         noBottomBorder
       />
     </Card>

@@ -7,6 +7,8 @@ docker-compose up
 pnpm i
 cd packages/server
 pnpm dev
+cd packages/client
+pnpm dev
 ```
 
 # Connect to redis
