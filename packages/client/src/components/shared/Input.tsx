@@ -7,7 +7,7 @@ interface Props extends ComponentProps<'input'> {
 const Input = forwardRef<HTMLInputElement, Props>(function Input({ label, ...props }, ref) {
   return (
     <>
-      <label htmlFor={props.id} className="mb-2 block font-medium text-gray-700 dark:text-gray-50">
+      <label htmlFor={props.id} className="mb-2 block font-bold text-gray-700 dark:text-gray-50">
         {label}
       </label>
       <input

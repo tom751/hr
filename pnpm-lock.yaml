@@ -12,6 +12,7 @@ importers:
 
   packages/client:
     specifiers:
+      '@fontsource/lato': ^4.5.10
       '@headlessui/react': ^1.6.6
       '@hookform/resolvers': ^2.9.7
       '@tailwindcss/forms': ^0.5.2
@@ -46,6 +47,7 @@ importers:
       zod: ^3.17.10
       zustand: ^4.0.0
     dependencies:
+      '@fontsource/lato': 4.5.10
       '@headlessui/react': 1.6.6_biqbaboplfbrettd7655fr4n2y
       '@hookform/resolvers': 2.9.7_react-hook-form@7.34.0
       clsx: 1.2.1
@@ -486,6 +488,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@fontsource/lato/4.5.10:
+    resolution: {integrity: sha512-2hYR6r661Cq9B8zugtu6yxuOKqrVhAgfOSaPSq8XoxbC4ebsl0KOTy/vPoP+9U7JuQVLfrmikirW4a9Z0nDUug==}
+    dev: false
 
   /@graphql-tools/merge/8.3.1_graphql@16.5.0:
     resolution: {integrity: sha512-BMm99mqdNZbEYeTPK3it9r9S6rsZsQKtlqJsSBknAclXq2pGEfOxjcIZi+kBSkHZKPKCRrYDd5vY0+rUmIHVLg==}

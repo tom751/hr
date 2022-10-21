@@ -10,7 +10,7 @@ export default function Summary() {
           <HiUser className="h-20 w-20 text-gray-500 opacity-80" />
         </div>
         <div className="ml-5">
-          <p>Welcome back,</p>
+          <p className="antialiased">Welcome back,</p>
           <p className="text-2xl font-bold text-gray-800">Bob Smith</p>
           <p>Software developer</p>
         </div>
@@ -20,13 +20,13 @@ export default function Summary() {
       </div>
       <div className="grid grid-cols-3 items-center divide-x-2 border-t-2 bg-gray-100 text-center">
         <p className="p-4">
-          <span className="font-medium">12</span> holidays left
+          <span className="font-bold">12</span> holidays left
         </p>
         <p className="p-4">
-          <span className="font-medium">12</span> days until next holiday
+          <span className="font-bold">12</span> days until next holiday
         </p>
         <p className="p-4">
-          <span className="font-medium">12</span> weeks until next holiday period
+          <span className="font-bold">12</span> weeks until next holiday period
         </p>
       </div>
     </Card>

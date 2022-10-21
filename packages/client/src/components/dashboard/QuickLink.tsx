@@ -36,7 +36,7 @@ export default function QuickLink({
       <p
         className={clsx(
           hoverClassName,
-          'relative mb-2 inline-block text-xl font-medium text-gray-800 after:absolute after:-bottom-1 after:left-0 after:h-1 after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-200 after:content-[""] group-hover:after:scale-x-100 group-focus:after:scale-x-100'
+          'relative mb-2 inline-block text-xl font-bold text-gray-800 after:absolute after:-bottom-1 after:left-0 after:h-1 after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-200 after:content-[""] group-hover:after:scale-x-100 group-focus:after:scale-x-100'
         )}
       >
         {title}

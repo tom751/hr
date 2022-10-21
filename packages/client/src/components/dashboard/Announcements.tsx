@@ -27,7 +27,7 @@ const announcements: AnnouncementPreview[] = [
 export default function Announcements() {
   return (
     <Card className="p-6">
-      <p className="mb-2 text-xl font-medium text-gray-800">Announcements</p>
+      <p className="mb-2 text-xl font-bold text-gray-800">Announcements</p>
       <div className="divide-y-2">
         {announcements.map((a) => (
           <Announcement announcement={a} key={a.id} />
